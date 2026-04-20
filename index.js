@@ -32,9 +32,10 @@ const client = new Client({
 client.on('qr', (qr) => {
     console.log('\n📱 Scan this QR code with your WhatsApp:\n');
     qrcode.generate(qr, { small: true });
-    console.log('\n👉 Open WhatsApp → Settings → Linked Devices → Link a Device\n');
+    
+    console.log('\n🔗 Or open this URL to scan QR code:');
+    console.log(`https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(qr)}\n`);
 });
-
 // ============ BOT READY ============
 client.on('ready', () => {
     console.log('\n✅ Bot is ready! 🚀');
